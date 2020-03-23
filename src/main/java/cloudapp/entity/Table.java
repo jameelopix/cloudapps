@@ -1,8 +1,10 @@
-package cloudapp.component;
+package cloudapp.entity;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
-public class Column {
+public class Table {
 
 	private Long id;
 	private String key;
@@ -15,7 +17,7 @@ public class Column {
 	private String lastUpdatedBy;
 	private Date lastUpdatedAt;
 
-	// List<column>
+	private List<Column> columns = new LinkedList<Column>();
 	// Map<Long, Table> columnIDMap = new HashMap<>();
 
 	public long getId() {
@@ -96,5 +98,13 @@ public class Column {
 
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+
+	public List<Column> getColumns() {
+		return columns;
+	}
+
+	public void setColumns(List<Column> columns) {
+		this.columns = columns;
 	}
 }

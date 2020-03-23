@@ -1,12 +1,14 @@
-package cloudapp.component;
+package cloudapp.entity;
 
 public class StringColumn extends Column {
 
 	private boolean isMultiLine;
 
-	private int minLengthAllowed = 0;
+	private String regexPattern;
 
-	private int maxLengthAllowed = 4098;
+	private int minLengthAllowed;
+
+	private int maxLengthAllowed;
 
 	public boolean isMultiLine() {
 		return isMultiLine;
@@ -30,5 +32,13 @@ public class StringColumn extends Column {
 
 	public void setMaxLengthAllowed(int maxLengthAllowed) {
 		this.maxLengthAllowed = maxLengthAllowed;
+	}
+
+	public String getRegexPattern() {
+		return regexPattern;
+	}
+
+	public void setRegexPattern(String regexPattern) {
+		this.regexPattern = regexPattern;
 	}
 }

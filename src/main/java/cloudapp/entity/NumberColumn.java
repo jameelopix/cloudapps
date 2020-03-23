@@ -1,4 +1,4 @@
-package cloudapp.component;
+package cloudapp.entity;
 
 public class NumberColumn extends Column {
 

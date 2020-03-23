@@ -1,49 +1,29 @@
 package cloudapp.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ParentResponse implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String errorCode;
+	private Error error;
 
-	private String errorMessage;
+	private List<Error> errors;
 
-	private String status;
-
-	private int totalRecordCount;
-
-	public String getErrorCode() {
-		return errorCode;
+	public List<Error> getErrors() {
+		return errors;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setErrors(List<Error> errors) {
+		this.errors = errors;
 	}
 
-	public String getErrorMessage() {
-		return errorMessage;
+	public Error getError() {
+		return error;
 	}
 
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+	public void setError(Error error) {
+		this.error = error;
 	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public int getTotalRecordCount() {
-		return totalRecordCount;
-	}
-
-	public void setTotalRecordCount(int totalRecordCount) {
-		this.totalRecordCount = totalRecordCount;
-	}
-
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.data.repository.NoRepositoryBean;
 
-@NoRepositoryBean
+//@NoRepositoryBean
 public interface BaseRepo<T, ID extends Serializable> { // extends JpaRepository<T, ID> {
 
 	public List<T> search(SearchObject searchObject);

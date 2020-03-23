@@ -1,19 +1,23 @@
 package cloudapp.jpa;
 
-import cloudapp.component.Column;
-import cloudapp.component.Table;
+import cloudapp.entity.Column;
+import cloudapp.entity.NumberColumn;
+import cloudapp.entity.Table;
 
 public interface DbRepo {
 
-    public Table save(Table table);
+	public Table save(Table table);
 
-    public void create(Table table);
+	public Table update(Table table);
 
-    public Table findTableById(Long id);
+	public void create(Table table);
 
-    public void deleteTableById(Long id);
+	public Table findTableById(Long id);
 
-    public Column save(Column column);
+	public void deleteTableById(Long id);
 
-    public void create(Column column);
+	//
+	public Column save(NumberColumn numberColumn);
+
+	public void create(NumberColumn numberColumn);
 }
