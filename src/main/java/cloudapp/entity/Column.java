@@ -16,6 +16,9 @@ public class Column {
 	private Date lastUpdatedAt;
 	private Long tableId;
 
+	private ColumnType columnType;
+	private boolean isNotNull;
+
 	// List<column>
 	// Map<Long, Table> columnIDMap = new HashMap<>();
 
@@ -105,5 +108,21 @@ public class Column {
 
 	public void setTableId(Long tableId) {
 		this.tableId = tableId;
+	}
+
+	public boolean isNotNull() {
+		return isNotNull;
+	}
+
+	public void setNotNull(boolean isNotNull) {
+		this.isNotNull = isNotNull;
+	}
+
+	public ColumnType getColumnType() {
+		return columnType;
+	}
+
+	public void setColumnType(ColumnType columnType) {
+		this.columnType = columnType;
 	}
 }

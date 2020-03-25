@@ -1,4 +1,4 @@
-package cloudapp.jpa;
+package cloudapp.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,16 +23,16 @@ public class TableRowMapper implements RowMapper<Table> {
 	@Override
 	public Table mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Table table = new Table();
-		table.setId(rs.getLong(ID));
-		table.setKey(rs.getString(TABLE_KEY));
-		table.setName(rs.getString(NAME));
-		table.setDisplayName(rs.getString(DISPLAY_NAME));
-		table.setIcon(rs.getString(ICON));
-		table.setDescription(rs.getString(DESCRIPTION));
-		table.setCreatedBy(rs.getString(CREATED_BY));
-		table.setCreatedAt(rs.getDate(CREATED_AT));
-		table.setLastUpdatedBy(rs.getString(LAST_UPDATED_BY));
-		table.setLastUpdatedAt(rs.getDate(LAST_UPDATED_AT));
+//		table.setId(rs.getLong(ID));
+//		table.setKey(rs.getString(TABLE_KEY));
+//		table.setName(rs.getString(NAME));
+//		table.setDisplayName(rs.getString(DISPLAY_NAME));
+//		table.setIcon(rs.getString(ICON));
+//		table.setDescription(rs.getString(DESCRIPTION));
+//		table.setCreatedBy(rs.getString(CREATED_BY));
+//		table.setCreatedAt(rs.getDate(CREATED_AT));
+//		table.setLastUpdatedBy(rs.getString(LAST_UPDATED_BY));
+//		table.setLastUpdatedAt(rs.getDate(LAST_UPDATED_AT));
 		return table;
 	}
 }

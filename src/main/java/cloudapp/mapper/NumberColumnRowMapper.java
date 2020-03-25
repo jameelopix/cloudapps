@@ -1,11 +1,10 @@
-package cloudapp.jpa;
+package cloudapp.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import cloudapp.entity.NumberColumn;
 import cloudapp.entity.NumberColumn;
 
 public class NumberColumnRowMapper implements RowMapper<NumberColumn> {

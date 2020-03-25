@@ -1,12 +1,9 @@
 package com.japps.cloudapps;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
+//@SpringBootTest
 class CloudappsApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 

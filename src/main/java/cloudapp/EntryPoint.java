@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EntryPoint {
 
 	public static void main(String[] args) {
-		System.out.println("EntryPoint.main()");
+//		System.out.println("EntryPoint.main()");
 		SpringApplication.run(EntryPoint.class, args);
 	}
 }

@@ -20,6 +20,8 @@ import cloudapp.common.StringUtils;
 import cloudapp.entity.Column;
 import cloudapp.entity.NumberColumn;
 import cloudapp.entity.Table;
+import cloudapp.mapper.NumberColumnRowMapper;
+import cloudapp.mapper.TableRowMapper;
 import cloudapp.web.DatabaseException;
 
 @Repository
@@ -76,15 +78,15 @@ public class DbRepoImpl implements DbRepo {
 
 		jdbcTemplate.update(connection -> {
 			PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			ps.setString(1, table.getName());
-			ps.setString(2, table.getKey());
-			ps.setString(3, table.getDisplayName());
-			ps.setString(4, table.getIcon());
-			ps.setString(5, table.getDescription());
-			ps.setString(6, table.getCreatedBy());
-			ps.setDate(7, new Date(table.getCreatedAt().getTime()));
-			ps.setString(8, table.getLastUpdatedBy());
-			ps.setDate(9, new Date(table.getLastUpdatedAt().getTime()));
+//			ps.setString(1, table.getName());
+//			ps.setString(2, table.getKey());
+//			ps.setString(3, table.getDisplayName());
+//			ps.setString(4, table.getIcon());
+//			ps.setString(5, table.getDescription());
+//			ps.setString(6, table.getCreatedBy());
+//			ps.setDate(7, new Date(table.getCreatedAt().getTime()));
+//			ps.setString(8, table.getLastUpdatedBy());
+//			ps.setDate(9, new Date(table.getLastUpdatedAt().getTime()));
 			return ps;
 		}, keyHolder);
 
@@ -102,20 +104,21 @@ public class DbRepoImpl implements DbRepo {
 
 		jdbcTemplate.update(connection -> {
 			PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			ps.setString(1, table.getName());
-			ps.setString(2, table.getKey());
-			ps.setString(3, table.getDisplayName());
-			ps.setString(4, table.getIcon());
-			ps.setString(5, table.getDescription());
-			ps.setString(6, table.getCreatedBy());
-			ps.setDate(7, new Date(table.getCreatedAt().getTime()));
-			ps.setString(8, table.getLastUpdatedBy());
-			ps.setDate(9, new Date(table.getLastUpdatedAt().getTime()));
-			ps.setLong(10, table.getId());
+//			ps.setString(1, table.getName());
+//			ps.setString(2, table.getKey());
+//			ps.setString(3, table.getDisplayName());
+//			ps.setString(4, table.getIcon());
+//			ps.setString(5, table.getDescription());
+//			ps.setString(6, table.getCreatedBy());
+//			ps.setDate(7, new Date(table.getCreatedAt().getTime()));
+//			ps.setString(8, table.getLastUpdatedBy());
+//			ps.setDate(9, new Date(table.getLastUpdatedAt().getTime()));
+//			ps.setLong(10, table.getId());
 			return ps;
 		});
 
-		return findTableById(table.getId());
+//		return findTableById(table.getId());
+		return null;
 	}
 
 	@Override
@@ -162,9 +165,6 @@ public class DbRepoImpl implements DbRepo {
 			Throwable throwable = e.getMostSpecificCause();
 			if (throwable instanceof SQLException) {
 				SQLException sqlException = (SQLException) throwable;
-//				sqlException.printStackTrace();
-				// return sqlException.getMessage();
-
 				throw new DatabaseException(sqlException.getMessage());
 			}
 		}

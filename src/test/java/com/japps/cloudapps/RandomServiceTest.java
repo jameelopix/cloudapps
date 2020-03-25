@@ -1,13 +1,11 @@
 package com.japps.cloudapps;
 
-import org.junit.jupiter.api.Test;
-
 import cloudapp.service.RandomService;
 
 //@SpringBootTest
 public class RandomServiceTest {
 
-	@Test
+//	@Test
 	public void testGenerateKey() {
 		// System.out.println("RandomServiceTest.testGenerateKey()");
 		System.out.println(RandomService.generateKey());

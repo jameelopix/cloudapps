@@ -4,36 +4,35 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import cloudapp.jpa.DATABASE_ENGINE;
+
 public class Table {
 
-	private Long id;
-	private String key;
+	private String id;
 	private String name;
 	private String displayName;
 	private String icon;
 	private String description;
-	private String createdBy;
-	private Date createdAt;
 	private String lastUpdatedBy;
 	private Date lastUpdatedAt;
+
+	private String databaseName;
+	private DATABASE_ENGINE databaseEngine;
+	private String charset;
 
 	private List<Column> columns = new LinkedList<Column>();
 	// Map<Long, Table> columnIDMap = new HashMap<>();
 
-	public long getId() {
+	public List<Column> getColumns() {
+		return columns;
+	}
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getKey() {
-		return key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
 	}
 
 	public String getName() {
@@ -42,46 +41,6 @@ public class Table {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public String getLastUpdatedBy() {
-		return lastUpdatedBy;
-	}
-
-	public void setLastUpdatedBy(String lastUpdatedBy) {
-		this.lastUpdatedBy = lastUpdatedBy;
-	}
-
-	public Date getLastUpdatedAt() {
-		return lastUpdatedAt;
-	}
-
-	public void setLastUpdatedAt(Date lastUpdatedAt) {
-		this.lastUpdatedAt = lastUpdatedAt;
 	}
 
 	public String getDisplayName() {
@@ -100,11 +59,56 @@ public class Table {
 		this.icon = icon;
 	}
 
-	public List<Column> getColumns() {
-		return columns;
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getLastUpdatedBy() {
+		return lastUpdatedBy;
+	}
+
+	public void setLastUpdatedBy(String lastUpdatedBy) {
+		this.lastUpdatedBy = lastUpdatedBy;
+	}
+
+	public Date getLastUpdatedAt() {
+		return lastUpdatedAt;
+	}
+
+	public void setLastUpdatedAt(Date lastUpdatedAt) {
+		this.lastUpdatedAt = lastUpdatedAt;
 	}
 
 	public void setColumns(List<Column> columns) {
 		this.columns = columns;
 	}
+
+	public String getDatabaseName() {
+		return databaseName;
+	}
+
+	public void setDatabaseName(String databaseName) {
+		this.databaseName = databaseName;
+	}
+
+	public DATABASE_ENGINE getDatabaseEngine() {
+		return databaseEngine;
+	}
+
+	public void setDatabaseEngine(DATABASE_ENGINE databaseEngine) {
+		this.databaseEngine = databaseEngine;
+	}
+
+	public String getCharset() {
+		return charset;
+	}
+
+	public void setCharset(String charset) {
+		this.charset = charset;
+	}
+
 }

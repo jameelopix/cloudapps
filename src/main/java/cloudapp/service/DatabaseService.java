@@ -13,6 +13,7 @@ import cloudapp.common.CONFIG;
 import cloudapp.dto.DatabaseRequest;
 import cloudapp.dto.DatabaseResponse;
 import cloudapp.entity.Column;
+import cloudapp.entity.FieldName;
 import cloudapp.entity.NumberColumn;
 import cloudapp.entity.StringColumn;
 import cloudapp.entity.Table;
@@ -23,14 +24,7 @@ import cloudapp.validator.StringValidator;
 @Service
 public class DatabaseService {
 
-	private static final String TABLE_NAME = "tableName";
-	private static final String DISPLAY_TABLE_NAME = "displayTableName";
-	private static final String TABLE_ID = "tableId";
-	private static final String ICON = "icon";
-	private static final String DESCRIPTION = "description";
-
-	Map<Long, Table> tableIDMap = new HashMap<>();
-	Map<String, Table> tableKeyMap = new HashMap<>();
+	Map<String, Table> tableIDMap = new HashMap<>();
 	Map<String, Table> tableNameMap = new HashMap<>();
 
 	@Autowired
@@ -45,8 +39,8 @@ public class DatabaseService {
 	// Not implmeneted
 	public DatabaseResponse renameTable(DatabaseRequest databaseRequest) {
 		Map<String, Object> valueMap = databaseRequest.getValues();
-		long tableId = (long) valueMap.get(TABLE_ID);
-		String tableName = ((String) valueMap.get(TABLE_NAME)).trim();
+		long tableId = (long) valueMap.get(FieldName.ID);
+		String tableName = ((String) valueMap.get(FieldName.NAME)).trim();
 
 		return null;
 	}
@@ -123,7 +117,7 @@ public class DatabaseService {
 		numberColumn.setNegativeAllowed(negativeAllowed);
 
 		if (numberColumn != null) {
-			long tableId = (long) valueMap.get(TABLE_ID);
+			String tableId = (String) valueMap.get(FieldName.ID);
 			String displayColumnName = ((String) valueMap.get("columnName")).trim();
 			String columnName = displayColumnName.replace(" ", "_").toUpperCase();
 			String columnKey = RandomService.generateKey(RandomService.PREFIX_COLUMN);
@@ -158,14 +152,14 @@ public class DatabaseService {
 		DatabaseResponse databaseResponse = new DatabaseResponse();
 		Map<String, Object> valueMap = databaseRequest.getValues();
 
-		String displayTableName = valueMap.get(DISPLAY_TABLE_NAME) != null
-				? ((String) valueMap.get(DISPLAY_TABLE_NAME)).trim()
+		String displayTableName = valueMap.get(FieldName.DISPLAY_NAME) != null
+				? ((String) valueMap.get(FieldName.DISPLAY_NAME)).trim()
 				: null;
 		if (displayTableName == null) {
-			displayTableName = valueMap.get(TABLE_NAME) != null ? ((String) valueMap.get(TABLE_NAME)).trim() : null;
+			displayTableName = valueMap.get(FieldName.NAME) != null ? ((String) valueMap.get(FieldName.NAME)).trim()
+					: null;
 		}
 
-		// TODO
 		stringValidator.checkNotBlank(displayTableName, "Table name is missing.");
 		String tableName = displayTableName.replace(" ", "_").toUpperCase();
 		String tableKey = RandomService.generateKey(RandomService.PREFIX_TABLE);
@@ -176,13 +170,10 @@ public class DatabaseService {
 				"Table Name can't be less than " + CONFIG.TABLE_NAME_MIN_LENGTH);
 		// TODO check duplicate for Table name
 
-//		if (errors.isEmpty()) {
 		Table table = new Table();
-		table.setKey(tableKey);
+		table.setId(tableKey);
 		table.setDisplayName(displayTableName);
 		table.setName(tableName);
-		table.setCreatedAt(new Date());
-		table.setCreatedBy(getLoggedInUser());
 		table.setLastUpdatedAt(new Date());
 		table.setLastUpdatedBy(getLoggedInUser());
 
@@ -191,25 +182,18 @@ public class DatabaseService {
 		table = dbRepo.save(table);
 
 		addTable(table);
-//		} else {
-//			databaseResponse.setErrors(errors);
-//		}
+
 		databaseResponse.setTable(table);
 		return databaseResponse;
 	}
 
 	private void addTable(Table table) {
 		tableIDMap.put(table.getId(), table);
-		tableKeyMap.put(table.getKey(), table);
 		tableNameMap.put(table.getName(), table);
 	}
 
-	private Table getTableById(Long id) {
+	private Table getTableById(String id) {
 		return tableIDMap.get(id);
-	}
-
-	private Table getTableByKey(String key) {
-		return tableKeyMap.get(key);
 	}
 
 	private Table getTableByName(String name) {
@@ -224,17 +208,18 @@ public class DatabaseService {
 		DatabaseResponse databaseResponse = new DatabaseResponse();
 		Map<String, Object> valueMap = databaseRequest.getValues();
 
-		Long tableId = valueMap.get(TABLE_ID) != null ? (Long) valueMap.get(TABLE_ID) : null;
-		String icon = valueMap.get(ICON) != null ? (String) valueMap.get(ICON) : null;
-		String description = valueMap.get(DESCRIPTION) != null ? (String) valueMap.get(DESCRIPTION) : null;
+		Long tableId = valueMap.get(FieldName.ID) != null ? (Long) valueMap.get(FieldName.ID) : null;
+		String icon = valueMap.get(FieldName.ICON) != null ? (String) valueMap.get(FieldName.ICON) : null;
+		String description = valueMap.get(FieldName.DESCRIPTION) != null ? (String) valueMap.get(FieldName.DESCRIPTION)
+				: null;
 
 		objectValidator.checkNotNull(tableId, "Table Id is missing.");
 
 		Table table = getTableById(tableId);
-		table.setIcon(icon);
-		table.setDescription(description);
-		table.setLastUpdatedAt(new Date());
-		table.setLastUpdatedBy(getLoggedInUser());
+//		table.setIcon(icon);
+//		table.setDescription(description);
+//		table.setLastUpdatedAt(new Date());
+//		table.setLastUpdatedBy(getLoggedInUser());
 
 		table = dbRepo.update(table);
 		databaseResponse.setTable(table);

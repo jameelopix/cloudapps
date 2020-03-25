@@ -6,9 +6,9 @@ public class StringColumn extends Column {
 
 	private String regexPattern;
 
-	private int minLengthAllowed;
+	private Integer minLengthAllowed;
 
-	private int maxLengthAllowed;
+	private Integer maxLengthAllowed;
 
 	public boolean isMultiLine() {
 		return isMultiLine;
@@ -18,22 +18,6 @@ public class StringColumn extends Column {
 		this.isMultiLine = isMultiLine;
 	}
 
-	public int getMinLengthAllowed() {
-		return minLengthAllowed;
-	}
-
-	public void setMinLengthAllowed(int minLengthAllowed) {
-		this.minLengthAllowed = minLengthAllowed;
-	}
-
-	public int getMaxLengthAllowed() {
-		return maxLengthAllowed;
-	}
-
-	public void setMaxLengthAllowed(int maxLengthAllowed) {
-		this.maxLengthAllowed = maxLengthAllowed;
-	}
-
 	public String getRegexPattern() {
 		return regexPattern;
 	}
@@ -41,4 +25,21 @@ public class StringColumn extends Column {
 	public void setRegexPattern(String regexPattern) {
 		this.regexPattern = regexPattern;
 	}
+
+	public Integer getMinLengthAllowed() {
+		return minLengthAllowed;
+	}
+
+	public void setMinLengthAllowed(Integer minLengthAllowed) {
+		this.minLengthAllowed = minLengthAllowed;
+	}
+
+	public Integer getMaxLengthAllowed() {
+		return maxLengthAllowed;
+	}
+
+	public void setMaxLengthAllowed(Integer maxLengthAllowed) {
+		this.maxLengthAllowed = maxLengthAllowed;
+	}
+
 }
