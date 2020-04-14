@@ -2,22 +2,16 @@ package cloudapp.entity;
 
 import java.util.Date;
 
-public class Column {
+public class ColumnView {
 
 	private String id;
 	private String name;
 	private String displayName;
 	private String icon;
 	private String description;
-	private String createdBy;
-	private Date createdAt;
 	private String lastUpdatedBy;
 	private Date lastUpdatedAt;
 	private String tableId;
-
-	private ColumnType columnType;
-	private boolean isNotNull;
-	private boolean isUnique;
 
 	public String getId() {
 		return id;

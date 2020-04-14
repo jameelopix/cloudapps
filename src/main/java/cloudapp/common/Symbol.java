@@ -21,5 +21,6 @@ public class Symbol {
 	public static String BACK_QUOTE = "`";
 	public static String EMPTY_QUOTE = "";
 
+	public static String UNDER_SCORE = "_";
 	public static String EQUALS = "=";
 }

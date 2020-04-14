@@ -19,6 +19,11 @@ public class DatabaseController {
 	@RequestMapping(value = "createTable", method = RequestMethod.POST)
 	@ResponseBody
 	public DatabaseResponse createTable(@RequestBody DatabaseRequest databaseRequest) {
+		System.out.println("DatabaseController.createTable()");
+
+		System.out.println(databaseRequest.getValues().get("id"));
+
+//		return new DatabaseResponse();
 		return databaseService.createTable(databaseRequest);
 	}
 

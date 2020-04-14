@@ -27,20 +27,20 @@ public class NumberColumnRowMapper implements RowMapper<NumberColumn> {
 	@Override
 	public NumberColumn mapRow(ResultSet rs, int rowNum) throws SQLException {
 		NumberColumn numberColumn = new NumberColumn();
-		numberColumn.setId(rs.getLong(ID));
-		numberColumn.setKey(rs.getString(COLUMN_KEY));
-		numberColumn.setName(rs.getString(NAME));
-		numberColumn.setDisplayName(rs.getString(DISPLAY_NAME));
-		numberColumn.setIcon(rs.getString(ICON));
-		numberColumn.setDescription(rs.getString(DESCRIPTION));
-		numberColumn.setCreatedBy(rs.getString(CREATED_BY));
-		numberColumn.setCreatedAt(rs.getDate(CREATED_AT));
-		numberColumn.setLastUpdatedBy(rs.getString(LAST_UPDATED_BY));
-		numberColumn.setLastUpdatedAt(rs.getDate(LAST_UPDATED_AT));
-		numberColumn.setTableId(rs.getLong(TABLE_ID));
-		numberColumn.setNegativeAllowed(rs.getBoolean(IS_NEGATIVE_ALLOWED));
-		numberColumn.setMinAllowed(rs.getInt(MIN_ALLOWED));
-		numberColumn.setMaxAllowed(rs.getInt(MAX_ALLOWED));
+		// numberColumn.setId(rs.getLong(ID));
+		// numberColumn.setKey(rs.getString(COLUMN_KEY));
+		// numberColumn.setName(rs.getString(NAME));
+		// numberColumn.setDisplayName(rs.getString(DISPLAY_NAME));
+		// numberColumn.setIcon(rs.getString(ICON));
+		// numberColumn.setDescription(rs.getString(DESCRIPTION));
+		// numberColumn.setCreatedBy(rs.getString(CREATED_BY));
+		// numberColumn.setCreatedAt(rs.getDate(CREATED_AT));
+		// numberColumn.setLastUpdatedBy(rs.getString(LAST_UPDATED_BY));
+		// numberColumn.setLastUpdatedAt(rs.getDate(LAST_UPDATED_AT));
+		// numberColumn.setTableId(rs.getLong(TABLE_ID));
+		// numberColumn.setNegativeAllowed(rs.getBoolean(IS_NEGATIVE_ALLOWED));
+		// numberColumn.setMinAllowed(rs.getInt(MIN_ALLOWED));
+		// numberColumn.setMaxAllowed(rs.getInt(MAX_ALLOWED));
 		return numberColumn;
 	}
 }

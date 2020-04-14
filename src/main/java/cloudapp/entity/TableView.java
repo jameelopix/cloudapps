@@ -1,23 +1,22 @@
 package cloudapp.entity;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
-public class Column {
+public class TableView {
 
 	private String id;
-	private String name;
+	private String tableId;
 	private String displayName;
 	private String icon;
 	private String description;
-	private String createdBy;
-	private Date createdAt;
 	private String lastUpdatedBy;
 	private Date lastUpdatedAt;
-	private String tableId;
 
-	private ColumnType columnType;
-	private boolean isNotNull;
-	private boolean isUnique;
+	private Map<String, ColumnView> columnViewMap = new HashMap<String, ColumnView>();
 
 	public String getId() {
 		return id;
@@ -25,14 +24,6 @@ public class Column {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getDisplayName() {
@@ -59,22 +50,6 @@ public class Column {
 		this.description = description;
 	}
 
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
 	public String getLastUpdatedBy() {
 		return lastUpdatedBy;
 	}
@@ -91,30 +66,6 @@ public class Column {
 		this.lastUpdatedAt = lastUpdatedAt;
 	}
 
-	public ColumnType getColumnType() {
-		return columnType;
-	}
-
-	public void setColumnType(ColumnType columnType) {
-		this.columnType = columnType;
-	}
-
-	public boolean isNotNull() {
-		return isNotNull;
-	}
-
-	public void setNotNull(boolean isNotNull) {
-		this.isNotNull = isNotNull;
-	}
-
-	public boolean isUnique() {
-		return isUnique;
-	}
-
-	public void setUnique(boolean isUnique) {
-		this.isUnique = isUnique;
-	}
-
 	public String getTableId() {
 		return tableId;
 	}
@@ -123,7 +74,12 @@ public class Column {
 		this.tableId = tableId;
 	}
 
-	// List<column>
-	// Map<Long, Table> columnIDMap = new HashMap<>();
+	public Map<String, ColumnView> getColumnViewMap() {
+		return columnViewMap;
+	}
+
+	public void setColumnViewMap(Map<String, ColumnView> columnViewMap) {
+		this.columnViewMap = columnViewMap;
+	}
 
 }

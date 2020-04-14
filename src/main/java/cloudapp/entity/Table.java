@@ -1,8 +1,8 @@
 package cloudapp.entity;
 
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import cloudapp.jpa.DATABASE_ENGINE;
 
@@ -20,12 +20,8 @@ public class Table {
 	private DATABASE_ENGINE databaseEngine;
 	private String charset;
 
-	private List<Column> columns = new LinkedList<Column>();
-	// Map<Long, Table> columnIDMap = new HashMap<>();
-
-	public List<Column> getColumns() {
-		return columns;
-	}
+	// private List<Column> columns = new LinkedList<Column>();
+	private Map<String, Column> columnMap = new HashMap<>();
 
 	public String getId() {
 		return id;
@@ -83,10 +79,6 @@ public class Table {
 		this.lastUpdatedAt = lastUpdatedAt;
 	}
 
-	public void setColumns(List<Column> columns) {
-		this.columns = columns;
-	}
-
 	public String getDatabaseName() {
 		return databaseName;
 	}
@@ -110,5 +102,17 @@ public class Table {
 	public void setCharset(String charset) {
 		this.charset = charset;
 	}
+
+	public Map<String, Column> getColumnMap() {
+		return columnMap;
+	}
+
+	public void setColumnMap(Map<String, Column> columnMap) {
+		this.columnMap = columnMap;
+	}
+
+	// public List<Column> getColumns() {
+	// return columns;
+	// }
 
 }

@@ -2,42 +2,24 @@ package cloudapp.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Record implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
-
-	private String createdBy;
-	private Date createdAt;
+	private String id;
 	private String lastUpdatedBy;
 	private Date lastUpdatedAt;
 
-	private Map<String, Object> values;
+	private Map<String, Object> values = new HashMap<>();
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
 	}
 
 	public String getLastUpdatedBy() {
